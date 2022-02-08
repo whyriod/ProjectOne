@@ -20,22 +20,17 @@ namespace ProjectOne.Controllers
             return View();
         }
 
-        public IActionResult Quadrants()
+        public IActionResult ViewQuad()
         {
             return View();
         }
 
-        public IActionResult addTask()
+        public IActionResult DeleteTask()
         {
             return View();
         }
 
-        public IActionResult viewTask()
-        {
-            return View();
-        }
-
-        public IActionResult Edit()
+        public IActionResult EditTask()
         {
             return View();
         }
