@@ -17,9 +17,7 @@ namespace ProjectOne.Controllers
         {
             _taskContext = something;
         }
-        public HomeController()
-        {
-        }
+        
 
         public IActionResult Index()
         {

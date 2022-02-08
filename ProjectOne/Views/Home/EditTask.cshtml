@@ -2,4 +2,54 @@
     This is for creating and updating Tasks
 *@
 @{
+
+    ViewData["Title"] = "Add Task";
 }
+<!--Need viewbag-->
+@model ProjectOne.Models.TaskForm
+
+<h1>New Task? Add below.</h1>
+
+
+<div>
+    <form>
+        <!--Make sure that the asp-for names will match with the model-->
+        <label asp-for="TaskName">Task</label>
+        <input asp-for="TaskName" />
+
+        <br />
+        <label asp-for="DueDate">Due Date</label>
+        <input asp-for="DueDate" />
+
+        <br />
+        <label asp-for="Quadrant">Quadrant</label>
+        <select asp-for="Quadrant">
+            <option value="">Please select a quadrant:</option>
+            <option value="1"> 1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        @*<br />
+        <label asp-for="CategoryID">Category</label>
+        <select asp-for="CategoryID">
+            <option value="">Select a Category</option>
+            @foreach (Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryID">@c.Category</option>
+            }
+        </select>
+        <br />*@
+
+        <label asp-for="Completed">Is the task completed?</label>
+        <select asp-for="Completed">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+
+        <br />
+        <button type="submit">Add Task!</button>
+        <div asp-validation-summary="All"></div>
+    </form>
+</div>
