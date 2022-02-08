@@ -19,5 +19,25 @@ namespace ProjectOne.Controllers
         {
             return View();
         }
+
+        public IActionResult Quadrants()
+        {
+            return View();
+        }
+
+        public IActionResult addTask()
+        {
+            return View();
+        }
+
+        public IActionResult viewTask()
+        {
+            return View();
+        }
+
+        public IActionResult Edit()
+        {
+            return View();
+        }
     }
 }
