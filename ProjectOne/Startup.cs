@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using ProjectOne.Models;
 
 namespace ProjectOne
 {
@@ -24,6 +26,11 @@ namespace ProjectOne
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<TaskFormContext>(options =>
+            {
+                options.UseSqlite(Configuration["ConnectionStrings:TaskConnection"]);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

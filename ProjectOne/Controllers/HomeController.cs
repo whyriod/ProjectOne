@@ -11,6 +11,12 @@ namespace ProjectOne.Controllers
 {
     public class HomeController : Controller
     {
+        private TaskFormContext _taskContext { get; set; }
+
+        public HomeController(TaskFormContext something)
+        {
+            _taskContext = something;
+        }
         public HomeController()
         {
         }
