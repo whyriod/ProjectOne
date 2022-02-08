@@ -34,9 +34,28 @@ namespace ProjectOne.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult EditTask()
         {
+            ViewBag.Categories = _taskContext.Categories.ToList();
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult EditTask(TaskForm tf)
+        {
+            if (ModelState.IsValid)
+            {
+                _taskContext.Add(tf);
+                _taskContext.SaveChanges();
+
+                return View("Conformation", tf);
+            }
+            else
+            {
+                ViewBag.Categories = _taskContext.Categories.ToList();
+                return View();
+            }
         }
     }
 }
