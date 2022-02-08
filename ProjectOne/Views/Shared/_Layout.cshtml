@@ -8,17 +8,17 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+    <nav class="navbar border-bottom bg-light" >
+        
+            <!--Shared navigation-->
 
-    <div>
-        <!--Shared navigation-->
+            <br /><a class="navbar-brand"asp-controller="Home" asp-action="Index">Home</a>
 
-        <br /><a asp-controller="Home" asp-action="Index">| Home   |</a>
+            <a class="navbar-brand"asp-controller="Home" asp-action="addTask">Add Tasks</a>
 
-        <a asp-controller="Home" asp-action="addTask">Add Tasks   |</a>
-
-        <a asp-controller="Home" asp-action="Quadrants">View Tasks   |</a>
-    </div>
-
+            <a class="navbar-brand" asp-controller="Home" asp-action="Quadrants">View Tasks</a>
+       
+    </nav>
     <div>
         @RenderBody()
     </div>
