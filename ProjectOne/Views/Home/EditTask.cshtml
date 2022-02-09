@@ -3,7 +3,7 @@
 *@
 @{
 
-    ViewData["Title"] = "Add Task";
+    ViewData["Title"] = "Add/Edit Task";
 }
 <!--Need viewbag-->
 @model ProjectOne.Models.TaskForm
@@ -12,7 +12,7 @@
 
 
 <div>
-    <form>
+    <form method="post">
         <!--Make sure that the asp-for names will match with the model-->
         <label asp-for="TaskName">Task</label>
         <input asp-for="TaskName" />
@@ -31,16 +31,16 @@
             <option value="4">4</option>
         </select>
 
-        @*<br />
-        <label asp-for="CategoryID">Category</label>
-        <select asp-for="CategoryID">
+        <br />
+        <label asp-for="CategoryId">Category</label>
+        <select asp-for="CategoryId">
             <option value="">Select a Category</option>
             @foreach (Category c in ViewBag.Categories)
             {
-                <option value="@c.CategoryID">@c.Category</option>
+                <option value="@c.CategoryId">@c.CategoryName</option>
             }
         </select>
-        <br />*@
+        <br />
 
         <label asp-for="Completed">Is the task completed?</label>
         <select asp-for="Completed">
