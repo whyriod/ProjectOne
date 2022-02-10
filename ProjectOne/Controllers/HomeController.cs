@@ -64,5 +64,22 @@ namespace ProjectOne.Controllers
                 return View();
             }
         }
+        [HttpGet]
+        public IActionResult DeleteTask(int id)
+        {
+            var delete_app = taskContext.Tasks.Single(i => i.TaskId == id);
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Delete(TaskForm tf)
+        {
+            taskContext.Tasks.Remove(tf);
+            taskContext.SaveChanges();
+
+            return RedirectToAction("ViewQuad");
+        }
     }
+}
 }

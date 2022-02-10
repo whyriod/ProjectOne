@@ -1,9 +1,23 @@
 ﻿@*
     //This is for confirming task deletion
 *@
-@{
+@{   ViewData["Title"] = "Delete";
 }
 
 @model ProjectOne.Models.TaskForm
+
+
+
+<h1>Confirm Deletion</h1>
+<h2>Are you sure you want to delete @Model.TaskName?</h2>
+
+
+<form method="post" asp-controller="Home" asp-action="Delete">
+    <button type="submit">Delete</button>
+    <a asp-controller="Home" asp-action="ViewQuad" class="btn btn-primary">Cancel</a>
+
+    <input type="hidden" asp-for="TaskId" />
+</form>
+
 
 <h1>The @Model.TaskName have been deleted.</h1>
