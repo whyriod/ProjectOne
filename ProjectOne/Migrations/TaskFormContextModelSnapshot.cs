@@ -88,6 +88,33 @@ namespace ProjectOne.Migrations
                             DueDate = "2022-02-09",
                             Quadrant = 2,
                             TaskName = "Take out trash"
+                        },
+                        new
+                        {
+                            TaskId = 2,
+                            CategoryId = 1,
+                            Completed = false,
+                            DueDate = "2022-02-12",
+                            Quadrant = 1,
+                            TaskName = "Watch Book of Boba Fett"
+                        },
+                        new
+                        {
+                            TaskId = 3,
+                            CategoryId = 3,
+                            Completed = false,
+                            DueDate = "2022-02-09",
+                            Quadrant = 3,
+                            TaskName = "Answer phone: Your extended warranty..."
+                        },
+                        new
+                        {
+                            TaskId = 4,
+                            CategoryId = 2,
+                            Completed = false,
+                            DueDate = "2022-02-09",
+                            Quadrant = 4,
+                            TaskName = "Look at memes"
                         });
                 });
 

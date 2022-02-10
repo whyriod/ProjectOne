@@ -67,6 +67,21 @@ namespace ProjectOne.Migrations
                 columns: new[] { "TaskId", "CategoryId", "Completed", "DueDate", "Quadrant", "TaskName" },
                 values: new object[] { 1, 1, false, "2022-02-09", 2, "Take out trash" });
 
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "TaskId", "CategoryId", "Completed", "DueDate", "Quadrant", "TaskName" },
+                values: new object[] { 2, 1, false, "2022-02-12", 1, "Watch Book of Boba Fett" });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "TaskId", "CategoryId", "Completed", "DueDate", "Quadrant", "TaskName" },
+                values: new object[] { 4, 2, false, "2022-02-09", 4, "Look at memes" });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "TaskId", "CategoryId", "Completed", "DueDate", "Quadrant", "TaskName" },
+                values: new object[] { 3, 3, false, "2022-02-09", 3, "Answer phone: Your extended warranty..." });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Tasks_CategoryId",
                 table: "Tasks",

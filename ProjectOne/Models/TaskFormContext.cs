@@ -38,6 +38,7 @@ namespace ProjectOne.Models
                     CategoryId = 1,
                     Completed = false
                 },
+                new TaskForm
                 {
                     TaskId = 2,
                     TaskName = "Watch Book of Boba Fett",
@@ -46,6 +47,7 @@ namespace ProjectOne.Models
                     CategoryId = 1,
                     Completed = false
                 },
+                new TaskForm
                 {
                     TaskId = 3,
                     TaskName = "Answer phone: Your extended warranty...",
@@ -54,6 +56,7 @@ namespace ProjectOne.Models
                     CategoryId = 3,
                     Completed = false
                 },
+                new TaskForm
                 {
                     TaskId = 4,
                     TaskName = "Look at memes",
