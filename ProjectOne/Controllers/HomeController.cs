@@ -19,7 +19,6 @@ namespace ProjectOne.Controllers
             taskContext = something;
         }
         
-
         public IActionResult Index()
         {
             return View("Index");
@@ -33,21 +32,31 @@ namespace ProjectOne.Controllers
                 .Where(x => x.Completed == false)
                 .OrderBy(x => x.TaskName)
                 .ToList();
-            return View("ViewQuad",tasks);
+            return View("ViewQuad", tasks);
         }
 
-        public IActionResult DeleteTask()
+        [HttpGet]
+        public IActionResult DeleteConfirm(int id)
         {
-            return View("DeleteTask");
+            var task = taskContext.Tasks.Single(x => x.TaskId == id);
+            return View("DeleteConfirm",task);
         }
 
+        [HttpPost]
+        public IActionResult DeleteConfirm(TaskForm tf)
+        {
+            taskContext.Tasks.Remove(tf);
+            taskContext.SaveChanges();
+            return RedirectToAction("ViewQuad");
+        }
 
         [HttpGet]
         public IActionResult AddTask()
         {
             ViewBag.Categories = taskContext.Categories.ToList();
-            return View("EditTask");
+            return View("EditTask", new TaskForm());
         }
+
 
         [HttpPost]
         public IActionResult AddTask(TaskForm tf)
@@ -57,20 +66,21 @@ namespace ProjectOne.Controllers
                 taskContext.Add(tf);
                 taskContext.SaveChanges();
 
-                return View("Conformation", tf);
+                return View("AddConfirm", tf);
             }
             else
             {
                 ViewBag.Categories = taskContext.Categories.ToList();
-                return View("EditTask");
+                return View("EditTask", new { id = tf.TaskId });
             }
         }
 
         [HttpGet]
         public IActionResult EditTask(int id)
         {
-            taskContext.Tasks.Single(x => x.TaskId == id);
-            return View("EditTask");
+            ViewBag.Categories = taskContext.Categories.ToList();
+            var task =  taskContext.Tasks.Single(x => x.TaskId == id);
+            return View("EditTask", task);
         }
 
         [HttpPost]
@@ -81,7 +91,7 @@ namespace ProjectOne.Controllers
                 taskContext.Update(tf);
                 taskContext.SaveChanges();
 
-                return View("Conformation", tf);
+                return RedirectToAction("ViewQuad");
             }
             else
             {

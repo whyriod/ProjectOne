@@ -13,7 +13,9 @@
 
 <div>
     <form method="post">
+        <input type="hidden" id="TaskId" asp-for="TaskId" />
         <!--Make sure that the asp-for names will match with the model-->
+
         <label asp-for="TaskName">Task</label>
         <input asp-for="TaskName" />
 
