@@ -37,6 +37,30 @@ namespace ProjectOne.Models
                     Quadrant = 2,
                     CategoryId = 1,
                     Completed = false
+                },
+                {
+                    TaskId = 2,
+                    TaskName = "Watch Book of Boba Fett",
+                    DueDate = "2022-02-12",
+                    Quadrant = 1,
+                    CategoryId = 1,
+                    Completed = false
+                },
+                {
+                    TaskId = 3,
+                    TaskName = "Answer phone: Your extended warranty...",
+                    DueDate = "2022-02-09",
+                    Quadrant = 3,
+                    CategoryId = 3,
+                    Completed = false
+                },
+                {
+                    TaskId = 4,
+                    TaskName = "Look at memes",
+                    DueDate = "2022-02-09",
+                    Quadrant = 4,
+                    CategoryId = 2,
+                    Completed = false
                 }
             );
         }
