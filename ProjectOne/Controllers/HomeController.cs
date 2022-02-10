@@ -28,7 +28,7 @@ namespace ProjectOne.Controllers
         [HttpGet]
         public IActionResult ViewQuad()
         {
-            var tasks = _taskContext.Tasks
+            var tasks = taskContext.Tasks
                 .Include(x => x.Category)
                 .Where(x => x.Completed == false)
                 .OrderBy(x => x.TaskName)
