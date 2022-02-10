@@ -41,15 +41,16 @@ namespace ProjectOne.Controllers
             return View();
         }
 
+
         [HttpGet]
-        public IActionResult EditTask()
+        public IActionResult AddTask()
         {
             ViewBag.Categories = taskContext.Categories.ToList();
             return View();
         }
 
         [HttpPost]
-        public IActionResult EditTask(TaskForm tf)
+        public IActionResult AddTask(TaskForm tf)
         {
             if (ModelState.IsValid)
             {
