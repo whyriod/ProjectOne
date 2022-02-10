@@ -12,11 +12,11 @@ namespace ProjectOne.Controllers
 {
     public class HomeController : Controller
     {
-        private TaskFormContext _taskContext { get; set; }
+        private TaskFormContext taskContext { get; set; }
 
         public HomeController(TaskFormContext something)
         {
-            _taskContext = something;
+            taskContext = something;
         }
         
 
@@ -44,7 +44,7 @@ namespace ProjectOne.Controllers
         [HttpGet]
         public IActionResult EditTask()
         {
-            ViewBag.Categories = _taskContext.Categories.ToList();
+            ViewBag.Categories = taskContext.Categories.ToList();
             return View();
         }
 
@@ -53,14 +53,14 @@ namespace ProjectOne.Controllers
         {
             if (ModelState.IsValid)
             {
-                _taskContext.Add(tf);
-                _taskContext.SaveChanges();
+                taskContext.Add(tf);
+                taskContext.SaveChanges();
 
                 return View("Conformation", tf);
             }
             else
             {
-                ViewBag.Categories = _taskContext.Categories.ToList();
+                ViewBag.Categories = taskContext.Categories.ToList();
                 return View();
             }
         }
