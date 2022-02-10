@@ -22,7 +22,7 @@ namespace ProjectOne.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
         [HttpGet]
@@ -33,12 +33,12 @@ namespace ProjectOne.Controllers
                 .Where(x => x.Completed == false)
                 .OrderBy(x => x.TaskName)
                 .ToList();
-            return View(tasks);
+            return View("ViewQuad",tasks);
         }
 
         public IActionResult DeleteTask()
         {
-            return View();
+            return View("DeleteTask");
         }
 
 
@@ -46,7 +46,7 @@ namespace ProjectOne.Controllers
         public IActionResult AddTask()
         {
             ViewBag.Categories = taskContext.Categories.ToList();
-            return View();
+            return View("EditTask");
         }
 
         [HttpPost]
@@ -62,8 +62,32 @@ namespace ProjectOne.Controllers
             else
             {
                 ViewBag.Categories = taskContext.Categories.ToList();
-                return View();
+                return View("EditTask");
             }
+        }
+
+        [HttpGet]
+        public IActionResult EditTask(int id)
+        {
+            taskContext.Tasks.Single(x => x.TaskId == id);
+            return View("EditTask");
+        }
+
+        [HttpPost]
+        public IActionResult EditTask(TaskForm tf)
+        {
+            if (ModelState.IsValid)
+            {
+                taskContext.Update(tf);
+                taskContext.SaveChanges();
+
+                return View("Conformation", tf);
+            }
+            else
+            {
+                return RedirectToAction("EditTask", new {id = tf.TaskId});
+            }
+
         }
     }
 }
