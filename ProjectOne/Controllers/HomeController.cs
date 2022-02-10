@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using ProjectOne.Models;
 using System;
@@ -24,9 +25,15 @@ namespace ProjectOne.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult ViewQuad()
         {
-            return View();
+            var tasks = _taskContext.Tasks
+                .Include(x => x.Category)
+                .Where(x => x.Completed == false)
+                .OrderBy(x => x.TaskName)
+                .ToList();
+            return View(tasks);
         }
 
         public IActionResult DeleteTask()
